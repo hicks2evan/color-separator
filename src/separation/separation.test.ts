@@ -1,5 +1,8 @@
-import {sum} from './separation';
+import { separate } from './separation';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+describe('seperate', () => {
+  test('it returns an empty array of bitmaps', () => {
+    const imageBuffer = Buffer.alloc(1);
+      expect(separate(imageBuffer, ['#FFFFFF', '#000000', '#ADF0DE'])).toEqual([]);
+  });
 });

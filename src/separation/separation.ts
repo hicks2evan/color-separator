@@ -1,3 +1,7 @@
-export const sum = function (a: number, b: number) {
-    return a + b;
+import sharp from 'sharp';
+
+export const separate = function (imageBuffer: Buffer, colors: string[]) : Buffer[] {
+    const image = sharp(imageBuffer).rotate;
+    const result: Buffer[] = [];
+    return result;
 }
