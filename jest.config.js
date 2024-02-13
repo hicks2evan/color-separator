@@ -10,5 +10,6 @@ module.exports = {
       "^.+\\.(ts|tsx)$": "ts-jest"
     },
     moduleNameMapper: {
-      'd3-color': '<rootDir>/node_modules/d3-color/dist/d3-color.min.js',    },
+      'd3-color': '<rootDir>/node_modules/d3-color/dist/d3-color.min.js',
+    },
   }

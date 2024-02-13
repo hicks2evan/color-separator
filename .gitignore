@@ -4,6 +4,5 @@ npm-debug.log
 .nyc
 .env
 .DS_Store
-package-lock.json
 *.log
 *.gz

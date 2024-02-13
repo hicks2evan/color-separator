@@ -1,5 +1,5 @@
 import fs from 'fs';
-import {rgb} from 'd3-color';
+import { rgb } from 'd3-color';
 import { Image } from 'image-js';
 import { separate } from './separation';
 
