@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from 'express';
 import fs from 'fs';
 import os from 'os';
 import formData from 'express-form-data';
-import { separate } from './separation/separation.js';
+import { separate } from './separation/separation';
 import { Image } from 'image-js';
 
 const app: Express = express();
@@ -26,8 +26,7 @@ app.use(formData.stream());
 // union the body and the files
 app.use(formData.union());
 
-app.get("/", (req: Request, res: Response) => {
-  console.log(req);
+app.get("/", (_, res: Response) => {
   res.send(
     "Welcome to Color Separator API, you may want to look back at https://github.com/hicks2evan/color-separator to see example CURL requests."
   );
@@ -38,7 +37,7 @@ app.post("/separate", async (req: Request, res: Response) => {
   const imagePath = req.body["image"]["path"];
   const image = await Image.load(fs.readFileSync(imagePath));
 
-  const separations = separate(image, colors);
+  const separations = await separate(image, colors);
 
   const names = [];
   for (const separation of separations) {

@@ -9,7 +9,7 @@ describe('seperate', () => {
     const whiteExpectation = await Image.load(fs.readFileSync('test-data/worm-small-white.png'));
     const blackExpectation = await Image.load(fs.readFileSync('test-data/worm-small-black.png'));
 
-    const result = separate(image, ['#FFFFFF','#000000']);
+    const result = await separate(image, ['#FFFFFF','#000000']);
     
     expect(result).toHaveLength(2);
     expect(result[0].data).toEqual(whiteExpectation.data);
@@ -22,7 +22,7 @@ describe('seperate', () => {
     const redExpectation = await Image.load(fs.readFileSync('test-data/worm-red.png'));
     const blackExpectation = await Image.load(fs.readFileSync('test-data/worm-black.png'));
 
-    const result = separate(image, ['#FFFFFF','#000000','#ff1428']);
+    const result = await separate(image, ['#FFFFFF','#000000','#ff1428']);
     
     expect(result).toHaveLength(3);
     // spot check a few pixels
