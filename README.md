@@ -1,8 +1,6 @@
 # color-separator
 API to create n color separations for posted images. Useful for generating separation files for Risograph printing and screen printing.
 
-### [API URL](https://color-separator-api-67f36f39cb8f.herokuapp.com/)
-
 # Local example:
 ```
 curl --location 'http://localhost:3001/separate' \
