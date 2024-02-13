@@ -1,9 +1,10 @@
-import {rgb, RGBColor} from 'd3-color';
-import { differenceEuclideanRGB} from '../util/diff';
+import { rgb, RGBColor } from 'd3-color';
+import { differenceEuclideanRGB } from '../util/diff.js';
 import { Image } from 'image-js';
 
-export const separate = function (image: Image, colors: RGBColor[]) : Image[] {
-    const pixelArray = image.getPixelsArray();
+export const separate = function (image: Image, colors: string[]) : Image[] {
+    const pixelArray: number[][] = image.getPixelsArray();
+    const rgbColors: RGBColor[] = colors.map(color => rgb(color));
 
     // fill separations with white to start
     const separations: Image[] = Array(colors.length).fill({}).map(() => Image.createFrom(image, {}).invert());
@@ -15,7 +16,7 @@ export const separate = function (image: Image, colors: RGBColor[]) : Image[] {
         let indexOfMin = 0;
         let min = 1000;
 
-        colors.forEach((color, index) => {
+        rgbColors.forEach((color, index) => {
             let difference = differenceEuclideanRGB(color, currentColor);
             if (difference < min) {
                 min = difference;

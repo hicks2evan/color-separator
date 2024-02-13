@@ -1,7 +1,6 @@
 import fs from 'fs';
-import { rgb } from 'd3-color';
-import { Image } from 'image-js';
 import { separate } from './separation';
+import { Image } from 'image-js';
 
 
 describe('seperate', () => {
@@ -10,7 +9,7 @@ describe('seperate', () => {
     const whiteExpectation = await Image.load(fs.readFileSync('test-data/worm-small-white.png'));
     const blackExpectation = await Image.load(fs.readFileSync('test-data/worm-small-black.png'));
 
-    const result = separate(image, [rgb(255, 255, 255), rgb(0,0,0)]);
+    const result = separate(image, ['#FFFFFF','#000000']);
     
     expect(result).toHaveLength(2);
     expect(result[0].data).toEqual(whiteExpectation.data);
@@ -23,7 +22,7 @@ describe('seperate', () => {
     const redExpectation = await Image.load(fs.readFileSync('test-data/worm-red.png'));
     const blackExpectation = await Image.load(fs.readFileSync('test-data/worm-black.png'));
 
-    const result = separate(image, [rgb(255, 255, 255), rgb(0,0,0), rgb(255,20,40)]);
+    const result = separate(image, ['#FFFFFF','#000000','#ff1428']);
     
     expect(result).toHaveLength(3);
     // spot check a few pixels
