@@ -4,9 +4,11 @@ API to create n color separations for posted images. Useful for generating separ
 ### [API URL](https://color-separator-api-67f36f39cb8f.herokuapp.com/)
 
 # Local example:
-`curl --location 'http://localhost:3001/separate' \
+```
+curl --location 'http://localhost:3001/separate' \
 --form 'image=@"[YOUR PNG PATH]"' \
---form 'colors="[\"#FFFFFF\",\"#000000\"]"'`
+--form 'colors="[\"#FFFFFF\",\"#000000\"]"'
+```
 ```
 [
     "separationacIfdr.png",
@@ -14,10 +16,10 @@ API to create n color separations for posted images. Useful for generating separ
 ]
 ```
 
-`
+```
 curl --location 'http://localhost:3001/file/separationiLnWMm.png' \
 --header 'Accept: image/png' --output response.png
-`
+```
 ```
 response.png
 ```
